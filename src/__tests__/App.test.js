@@ -20,9 +20,9 @@ test("displays question prompts after fetching", async () => {
 
   fireEvent.click(screen.queryByText(/View Questions/));
 
-  expect(await screen.findByText(/lorem testum 1/g)).toBeInTheDocument();
-  expect(await screen.findByText(/lorem testum 2/g)).toBeInTheDocument();
-});
+  expect(screen.getByText(/lorem.*testum.*1\/2/i)).toBeInTheDocument();
+  expect(await screen.findByText(/lorem.*testum.*2\/2/i)).toBeInTheDocument();
+
 
 test("creates a new question when the form is submitted", async () => {
   render(<App />);
